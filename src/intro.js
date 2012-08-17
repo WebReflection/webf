@@ -20,9 +20,9 @@ var
   path = require("path"),
   spawn = require('child_process').spawn,
   args = resolveArguments(process.argv),
-  dbName = path.join(env.HOME, ".chef"),
-  program = /^polpetta|serverdir$/.test(args[1]) ?
-    RegExp["$&"] : args.splice(1, 0, "polpetta") && args[1]
+  dbName = path.join(env.HOME, ".webf"),
+  program = /^\d+$/.test(args[1]) ?
+    args.splice(1, 0, "polpetta") && args[1] : args[1]
   ,
   port = findPort(args.slice(2)) || "",
   filteredFolder = args.filter(function (folder, i) {

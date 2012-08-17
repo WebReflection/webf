@@ -20,9 +20,9 @@ var
   path = require("path"),
   spawn = require('child_process').spawn,
   args = resolveArguments(process.argv),
-  dbName = path.join(env.HOME, ".chef"),
-  program = /^polpetta|serverdir$/.test(args[1]) ?
-    RegExp["$&"] : args.splice(1, 0, "polpetta") && args[1]
+  dbName = path.join(env.HOME, ".webf"),
+  program = /^\d+$/.test(args[1]) ?
+    args.splice(1, 0, "polpetta") && args[1] : args[1]
   ,
   port = findPort(args.slice(2)) || "",
   filteredFolder = args.filter(function (folder, i) {
@@ -86,7 +86,7 @@ function perform(magic) {
     case "cook":
       port && filteredFolder && kill(port);
       child = spawn(
-        "node", [path.join(__dirname, program)].concat(args.slice(2)), {
+        "node", [program].concat(args.slice(2)), {
         detached: true,
         stdio: ["ignore", fs.openSync(dbName, "a"), "ignore"]
       });
@@ -141,7 +141,7 @@ if (fs.existsSync(dbName)) {
   try {
     db = JSON.parse(dbStringified);
   } catch(o_O) {
-    console.warn("ooops, the chef burned something!");
+    console.warn("ooops, the webf lost something!");
     console.warn(dbStringified);
   }
 }

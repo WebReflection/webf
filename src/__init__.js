@@ -4,7 +4,7 @@ if (fs.existsSync(dbName)) {
   try {
     db = JSON.parse(dbStringified);
   } catch(o_O) {
-    console.warn("ooops, the chef burned something!");
+    console.warn("ooops, the webf lost something!");
     console.warn(dbStringified);
   }
 }

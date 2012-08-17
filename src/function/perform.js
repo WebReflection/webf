@@ -25,7 +25,7 @@ function perform(magic) {
     case "cook":
       port && filteredFolder && kill(port);
       child = spawn(
-        "node", [path.join(__dirname, program)].concat(args.slice(2)), {
+        "node", [program].concat(args.slice(2)), {
         detached: true,
         stdio: ["ignore", fs.openSync(dbName, "a"), "ignore"]
       });
