@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "name": "webf",
+  "description": "Web Folder is the polpetta, serverdir, or similar programs non-blocking launcher with daemon option",
+  "homepage": "https://github.com/WebReflection/webf",
+  "main": "./build/webf",
+  "keywords": ["launcher", "polpetta", "serverdir", "node", "nonblocking", "chroot"],
+  "author": {
+    "name": "Andrea Giammarchi",
+    "web": "http://webreflection.blogspot.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/WebReflection/webf.git"
+  },
+  "bin": {
+    "webf": "./build/webf"
+  }
+}
