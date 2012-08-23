@@ -1,10 +1,14 @@
 
 function watchReplacer() {
-  var out = fs.readFileSync(dbName, "utf-8");
+  var fl, out = fs.readFileSync(dbName, "utf-8");
   if (out !== dbStringified) {
     out = out.replace(dbStringified, "");
     console.log(out);
-    if (/:\/\/[^:]+:(\d+)\//.test(out.split(/\r\n|\r|\n/)[0])) {
+    fl = out.split(/\r\n|\r|\n/)[0];
+    if (
+      /:\/\/[^:]+:(\d+)\//.test(fl) ||
+      /Serving [^\x0]*? on port (\d+)/.test(fl)
+    ) {
       domain[RegExp.$1] = child.pid;
     }
     save();

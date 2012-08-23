@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "webf",
   "description": "Web Folder is the polpetta, serverdir, or similar programs non-blocking launcher with daemon option",
   "homepage": "https://github.com/WebReflection/webf",

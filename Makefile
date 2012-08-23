@@ -18,5 +18,6 @@ clean:
 
 # clean/remove build folder
 test:
-	node test/webf.js
+	node test/webf.js polpetta
+	node test/webf.js servedir
 
