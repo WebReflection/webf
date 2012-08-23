@@ -7,7 +7,7 @@ how
 ---
 Via npm, `npm install webf -g`
 
-To launch in a non-blocking way polpetta or servedir `webf path/to/polpetta|servedir/bin start|stop [folder] [port]`
+To launch in a non-blocking way polpetta or servedir `webf start|stop path/to/polpetta|servedir/bin [folder] [port]`
 
 The daemon option is coming soon.
 

@@ -37,7 +37,7 @@ function perform(magic) {
       break;
     default:
       console.log([
-        "chef [start|stop] [polpetta|serverdir] [path] [port]"
+        "webf [start|stop] [polpetta|serverdir] [path] [port]"
       ].join("\n"));
       break;
   }
