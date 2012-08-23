@@ -25,7 +25,6 @@ if (!module.parent) {
     testObject = JSON.parse(
       testContent = fs.readFileSync(webfDBPath, "utf-8")
     );
-    console.log(testContent);
   }
 
   function exec() {
