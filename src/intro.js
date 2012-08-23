@@ -29,6 +29,7 @@ var
     return 1 < i && folder != port;
   })[0],
   folder = path.resolve(filteredFolder || process.cwd()),
+  programName = program.split(path.sep).pop(),
   dbStringified, db,
   nmsp, domain, child
 ;

@@ -7,6 +7,7 @@ if (!module.parent) {
     webfDBPath = path.join(process.env.HOME, ".webf"),
     webfPath = path.join(__dirname, "../build", "webf"),
     program = "/usr/local/bin/polpetta",
+    programName = program.split(path.sep).pop(),
     originalContent,
     testObject, testContent
   ;
@@ -44,9 +45,9 @@ if (!module.parent) {
     test: function () {
       exec("start", program).on("close", wru.async(function () {
         update();
-        wru.assert("polpetta as default namespace", program in testObject);
-        wru.assert("folder is there", testObject[program] && getFolder() in testObject[program]);
-        var sub = testObject[program][getFolder()];
+        wru.assert("polpetta as default namespace", programName in testObject);
+        wru.assert("folder is there", testObject[programName] && getFolder() in testObject[programName]);
+        var sub = testObject[programName][getFolder()];
         wru.assert(Object.keys(sub).length === 1);
         wru.assert(typeof sub[Object.keys(sub)[0]] == "number");
       }));
@@ -56,7 +57,7 @@ if (!module.parent) {
     test: function () {
       exec("stop", program).on("close", wru.async(function () {
         update();
-        wru.assert("no more processes", testContent === '{"' + program + '":{}}');
+        wru.assert("no more processes", testContent === '{"' + programName + '":{}}');
       }));
     }
   }, {
@@ -64,9 +65,9 @@ if (!module.parent) {
     test: function () {
       exec("start", program).on("close", wru.async(function () {
         update();
-        wru.assert("polpetta as default namespace", program in testObject);
-        wru.assert("folder is there", testObject[program] && getFolder() in testObject[program]);
-        var sub = testObject[program][getFolder()];
+        wru.assert("polpetta as default namespace", programName in testObject);
+        wru.assert("folder is there", testObject[programName] && getFolder() in testObject[programName]);
+        var sub = testObject[programName][getFolder()];
         wru.assert(Object.keys(sub).length === 1);
         wru.assert(typeof sub[Object.keys(sub)[0]] == "number");
       }));
@@ -76,7 +77,7 @@ if (!module.parent) {
     test: function () {
       exec("stop", program).on("close", wru.async(function () {
         update();
-        wru.assert("no more processes", testContent === '{"' + program + '":{}}');
+        wru.assert("no more processes", testContent === '{"' + programName + '":{}}');
       }));
     }
   }, {
@@ -84,9 +85,9 @@ if (!module.parent) {
     test: function () {
       exec("start", program, "2902").on("close", wru.async(function () {
         update();
-        wru.assert("polpetta as default namespace", program in testObject);
-        wru.assert("folder is there", testObject[program] && getFolder() in testObject[program]);
-        var sub = testObject[program][getFolder()];
+        wru.assert("polpetta as default namespace", programName in testObject);
+        wru.assert("folder is there", testObject[programName] && getFolder() in testObject[programName]);
+        var sub = testObject[programName][getFolder()];
         wru.assert(Object.keys(sub).length === 1);
         wru.assert(typeof sub[Object.keys(sub)[0]] == "number");
       }));
@@ -96,7 +97,7 @@ if (!module.parent) {
     test: function () {
       exec("stop", program).on("close", wru.async(function () {
         update();
-        wru.assert("no more processes", testContent === '{"' + program + '":{}}');
+        wru.assert("no more processes", testContent === '{"' + programName + '":{}}');
       }));
     }
   }, function putOriginalContentBack() {

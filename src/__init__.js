@@ -10,6 +10,6 @@ if (fs.existsSync(dbName)) {
 }
 
 db || save(db = {});
-nmsp = db[program] || (db[program] = {});
+nmsp = db[programName] || (db[programName] = {});
 
 perform(args[0]);
